@@ -1,6 +1,8 @@
 local HRF = HodorReflexes
 local LH = LibHyper
 local HR = HodorRestyle
+local libCN = _G["LibCustomNames"]
+local libCI = _G["LibCustomIcons"]
 
 local classRoleIcons = { --FIXME should move that somewhere else
     [1] = { --Dragonknight
@@ -51,8 +53,8 @@ local classRoleIcons = { --FIXME should move that somewhere else
 
 local iconTypeFunctions = {
     ['hodor'] = function(groupMemberName, groupMemberNumber, icon)
-        if HRF.users[groupMemberName] and HRF.users[groupMemberName][3] then
-            icon:SetTexture(HRF.users[groupMemberName][3])
+        if libCI ~= nil and libCI.HasIcon(groupMemberName) then
+            icon:SetTexture(libCI.GetIcon(groupMemberName))
         else
             icon:SetTexture('/esoui/art/icons/class/gamepad/gp_class_' .. GetUnitClass('group' .. groupMemberNumber) .. '.dds')
         end
@@ -67,8 +69,8 @@ local iconTypeFunctions = {
 
 local textColorFunctions = {
     ['hodor'] = function(groupMemberName, label, i)
-        if HRF.users[groupMemberName] and HRF.users[groupMemberName][2] then
-            label:SetText(i .. '. ' .. HRF.users[groupMemberName][2])
+        if libCN ~= nil and libCN.HasCustomName(groupMemberName) then
+            label:SetText(i .. '. ' .. libCN.GetColored(groupMemberName))
         else
             label:SetText(i .. '. ' .. groupMemberName:sub(2)) --FIXME remove the @
         end
