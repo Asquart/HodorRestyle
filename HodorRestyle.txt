@@ -1,6 +1,6 @@
-## APIVersion: 101036
+## APIVersion: 101046
 ## Title: HodorRestyle
-## Version: 1.1
+## Version: 1.2
 ## Author: Hyperioxes
 ## Description: Changes appearance of Hodor dps list
 ## SavedVariables: HodorRestyleSV
